@@ -1,0 +1,52 @@
+/* style.css */
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between items as needed */
+}
+
+.flex-item {
+    width: calc(25% - 20px); /* Adjust the width based on your design */
+    min-width: 200px; /* Set a minimum width to ensure fixed size */
+    max-width: 300px; /* Optionally, set a maximum width for responsiveness */
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Adjust margin bottom as needed */
+    height: 200px; /* Fixed height for each flex item */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align content vertically */
+}
+
+.flex-item h3 {
+    margin: 0;
+}
+
+.flex-item p {
+    margin: 10px 0 0; /* Adjust margin as needed */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Truncate text with ellipsis */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+@media (max-width: 1200px) {
+    .flex-item {
+        width: cal
+    }
+}
