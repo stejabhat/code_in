@@ -1,0 +1,13 @@
+<!-- shop/templates/shop/product_detail.html -->
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>{{ product.title }}</h1>
+<img src="{{ product.image.url }}" alt="{{ product.title }}">
+<p>{{ product.description }}</p>
+<p>Price: {{ product.price }} USD</p>
+<p>Rating: {{ product.ratings }}</p>
+<p>{{ product.is_favorite|yesno:"Favorite,Not Favorite" }}</p>
+<p>{{ product.add_to_cart|yesno:"In Cart,Not In Cart" }}</p>
+{% endblock %}

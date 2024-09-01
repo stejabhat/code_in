@@ -1,0 +1,12 @@
+<!-- shop/templates/shop/category_list.html -->
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>Categories</h1>
+<ul>
+    {% for category in categories %}
+    <li><a href="{% url 'category_detail' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
