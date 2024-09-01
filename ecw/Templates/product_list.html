@@ -3,19 +3,84 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<h1>Product List</h1>
-<ul>
-    {% for product in products %}
-    <li>
-        <a href="{% url 'product_detail' product.id %}">
-            <img src="{{ product.image.url }}" alt="{{ product.title }}" width="100">
-            <h2>{{ product.title }}</h2>
-            <p>{{ product.price }} USD</p>
-            <p>Rating: {{ product.ratings }}</p>
-            <p>{{ product.is_favorite|yesno:"Favorite,Not Favorite" }}</p>
-            <p>{{ product.add_to_cart|yesno:"In Cart,Not In Cart" }}</p>
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+<style>
+    /* Product List Page Styles */
+    .product-list {
+        background: #222;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .product-list h1 {
+        color: #f1c40f;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .product-list ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .product-list ul li {
+        background: #333;
+        border: 1px solid #444;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .product-list ul li a {
+        color: #ddd;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .product-list ul li img {
+        border-radius: 8px;
+        margin-right: 15px;
+        max-width: 100px;
+        height: auto;
+    }
+
+    .product-list ul li h2 {
+        color: #f1c40f;
+        margin: 0;
+    }
+
+    .product-list ul li p {
+        color: #ddd;
+        margin: 5px 0;
+    }
+
+    .product-list ul li p.price {
+        color: #f1c40f;
+        font-size: 1.2em;
+    }
+</style>
+<div class="product-list">
+    <h1>Product List</h1>
+    <ul>
+        {% for product in products %}
+        <li>
+            <a href="{% url 'product_detail' product.id %}">
+                <img src="https://i.pinimg.com/564x/c1/63/c3/c163c3108b44c6b74f28c2fe36b6d9cc.jpg" alt="{{ product.title }}">
+                <div>
+                    <h2>{{ product.title }}</h2>
+                    <p class="price">{{ product.price }} USD</p>
+                    <p>Rating: {{ product.ratings }}</p>
+                    <p>{{ product.is_favorite|yesno:"Favorite,Not Favorite" }}</p>
+                    <p>{{ product.add_to_cart|yesno:"In Cart,Not In Cart" }}</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

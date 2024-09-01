@@ -1,13 +1,59 @@
 <!-- shop/templates/shop/product_detail.html -->
 
+<!-- shop/templates/shop/product_detail.html -->
+
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<h1>{{ product.title }}</h1>
-<img src="{{ product.image.url }}" alt="{{ product.title }}">
-<p>{{ product.description }}</p>
-<p>Price: {{ product.price }} USD</p>
-<p>Rating: {{ product.ratings }}</p>
-<p>{{ product.is_favorite|yesno:"Favorite,Not Favorite" }}</p>
-<p>{{ product.add_to_cart|yesno:"In Cart,Not In Cart" }}</p>
+<style>
+    /* Product Detail Page Styles */
+    .product-detail {
+        background: #222;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        color: #ddd;
+        text-align: center;
+    }
+
+    .product-detail h1 {
+        color: #f1c40f;
+        margin-bottom: 15px;
+    }
+
+    .product-detail img {
+        border-radius: 8px;
+        margin-bottom: 15px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product-detail p {
+        margin: 10px 0;
+    }
+
+    .product-detail .price {
+        color: #f1c40f;
+        font-size: 1.2em;
+    }
+
+    .product-detail .rating {
+        color: #ddd;
+    }
+
+    .product-detail .favorite,
+    .product-detail .cart-status {
+        color: #f1c40f;
+        font-weight: bold;
+    }
+</style>
+<div class="product-detail">
+    <h1>{{ product.title }}</h1>
+    <img src="https://i.pinimg.com/564x/c1/63/c3/c163c3108b44c6b74f28c2fe36b6d9cc.jpg" alt="{{ product.title }}">
+    <p>{{ product.description }}</p>
+    <p class="price">Price: {{ product.price }} USD</p>
+    <p class="rating">Rating: {{ product.ratings }}</p>
+    <p class="favorite">{{ product.is_favorite|yesno:"Favorite,Not Favorite" }}</p>
+    <p class="cart-status">{{ product.add_to_cart|yesno:"In Cart,Not In Cart" }}</p>
+</div>
 {% endblock %}
